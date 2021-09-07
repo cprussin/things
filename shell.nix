@@ -40,6 +40,7 @@ pkgs.mkShell {
     pkgs.niv
     pkgs.openscad
     pkgs.prusa-slicer
+    pkgs.freecad
     build
   ];
 }
