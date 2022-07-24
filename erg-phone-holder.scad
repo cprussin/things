@@ -36,11 +36,6 @@ module phone_grip_post(depth, height) {
           }
      }
 
-     // Supports
-     translate([0, phone_grip_wall_width / 2, phone_grip_jaw_height]) {
-          cube(size = [phone_grip_post_width, 0.5, height - (2 * phone_grip_jaw_height)]);
-     }
-
      translate ([0, 0, height - (phone_grip_wall_width / 2) - phone_grip_jaw_height]) {
           phone_grip_jaw_nub();
      }
@@ -61,8 +56,12 @@ module phone_grip() {
      translate ([phone_width + phone_grip_post_width - (2 * phone_grip_offset), 0, 0]) {
           phone_grip_post(depth, height);
      }
+     translate ([(phone_width + phone_grip_post_width - (2 * phone_grip_offset)) / 2, depth - phone_grip_wall_width, 0]) {
+          SmoothXYCube(size = [phone_grip_post_width, phone_grip_wall_width, height / 2], smooth_rad = pm_mount_wall_width);
+     }
      translate([phone_grip_wall_width / 2, phone_depth + phone_grip_wall_width, (phone_height - phone_grip_wall_width) / 2]) {
-          cube(size = [phone_grip_width() - (phone_grip_wall_width * 2), phone_grip_wall_width, phone_grip_post_width]);
+          rotate([90, 0, 90])
+               SmoothXYCube(size = [phone_grip_wall_width, phone_grip_post_width, phone_grip_width() - (phone_grip_wall_width * 2)], smooth_rad = pm_mount_wall_width);
      }
 }
 
