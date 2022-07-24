@@ -5,10 +5,10 @@
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "84aa23742f6c72501f9cc209f29c438766f5352d",
-        "sha256": "0h7xl6q0yjrbl9vm3h6lkxw692nm8bg3wy65gm95a2mivhrdjpxp",
+        "rev": "75feaefc59ead1d5ecf5f993050c0d52c08cb9ce",
+        "sha256": "0v3xsca23yx3flvqrr3jskrq27nvky26g640m0djq4ggv4931bry",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/84aa23742f6c72501f9cc209f29c438766f5352d.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/75feaefc59ead1d5ecf5f993050c0d52c08cb9ce.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "smooth-prim": {
@@ -17,10 +17,10 @@
         "homepage": null,
         "owner": "rcolyer",
         "repo": "smooth-prim",
-        "rev": "25ac614ef0d65083b6e641a46d12e815996d97d8",
-        "sha256": "11581469yxslrgdc8blg98y1dzd5rln5m1k577qcb8751v6lc089",
+        "rev": "0d0038f984465f3eb0f6026a4d5de2f79d2dcea8",
+        "sha256": "199wzvy471nkx8cf827fbqx715b1qcj9z7fs2l44sjcmbkfbyls3",
         "type": "tarball",
-        "url": "https://github.com/rcolyer/smooth-prim/archive/25ac614ef0d65083b6e641a46d12e815996d97d8.tar.gz",
+        "url": "https://github.com/rcolyer/smooth-prim/archive/0d0038f984465f3eb0f6026a4d5de2f79d2dcea8.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

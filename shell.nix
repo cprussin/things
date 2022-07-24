@@ -1,15 +1,12 @@
-let
-  sources = import ./sources.nix;
-in
-{ nixpkgs ? sources.nixpkgs
-, niv ? sources.niv
+{ sources ? import ./sources.nix
+, nixpkgs ? sources.nixpkgs
 , smooth-prim ? sources.smooth-prim
 }:
 let
-  niv-overlay = self: _: {
+  niv-overlay = self: super: {
     niv = self.symlinkJoin {
       name = "niv";
-      paths = [ niv ];
+      paths = [ super.niv ];
       buildInputs = [ self.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/niv \
