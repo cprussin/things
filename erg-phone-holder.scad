@@ -1,5 +1,7 @@
 use <smooth-prim/smooth_prim.scad>
 
+selected_color = "ALL";
+
 $fa = 1;
 $fs = 0.4;
 
@@ -80,7 +82,25 @@ module pm_mount() {
      }
 }
 
-pm_mount();
-translate([(pm_mount_width() - phone_grip_width()) / 2, 0, pm_mount_depth]) {
-     phone_grip();
+module words() {
+    translate([pm_mount_width() / 2, 1, (pm_mount_depth + pm_mount_wall_width) / 2])
+        rotate([90, 0, 0])
+        linear_extrude(2)
+        text(text = "HARD AS FUCK", font = "Tomorrow ExtraBold", halign = "center", valign = "center");
+}
+
+module multicolor(color_) {
+  if (selected_color == "ALL" || selected_color == color_) {
+    color(color_) children();
+  }
+}
+
+multicolor("blue")
+    words();
+
+multicolor("grey") {
+    pm_mount();
+    translate([(pm_mount_width() - phone_grip_width()) / 2, 0, pm_mount_depth]) {
+        phone_grip();
+    }
 }
