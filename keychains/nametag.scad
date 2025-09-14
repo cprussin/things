@@ -10,14 +10,26 @@ module letter(character, x_offset, y_offset) {
     text(character, font = font, size = size);
 }
 
-module nametag(characters, ring_offset) {
-  translate([ring_offset[0] * size, ring_offset[1] * size, 0])
+module nametag(characters, ring_offset, ring_color, selected_color) {
+  multicolor(selected_color, ring_color)
+    translate([ring_offset[0] * size, ring_offset[1] * size, 0])
     linear_extrude(height = height)
     difference() {
       circle(5);
       circle(2);
     }
   for (character_index = [0: len(characters) - 1]) {
-    letter(characters[character_index][0], characters[character_index][1], character_index % 2 == 0);
+    multicolor(selected_color, characters[character_index][2])
+      letter(
+        characters[character_index][0],
+        characters[character_index][1],
+        character_index % 2 == 0
+      );
   };
+}
+
+module multicolor(selected_color, color_) {
+  if (selected_color == undef || selected_color == color_) {
+    color(color_) children();
+  }
 }
